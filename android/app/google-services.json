@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "235393271317",
+    "project_id": "partners-chat-new",
+    "storage_bucket": "partners-chat-new.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:235393271317:android:142dd34d0e2cab1ec6701c",
+        "android_client_info": {
+          "package_name": "com.vlpmpartnersrelease"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "235393271317-7qkgtppm17a00ar9lfm7p0jonp7797lj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBjjI3qAPL7GtCCMI7aimiduYU1qqOSYEE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "235393271317-7qkgtppm17a00ar9lfm7p0jonp7797lj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
