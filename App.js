@@ -33,6 +33,7 @@ import * as Permissions from 'react-native-permissions';
 import * as CreateThumbnail from 'react-native-create-thumbnail';
 import RootStackNavigation from '@navigations/RootStackNavigation';
 import AuthStackNavigation from '@navigations/AuthStackNavigation';
+import PermissionsNavigation from '@navigations/PermissionsNavigation';
 import { useUserStore } from '@libs/zustand';
 import theme from '@styles/theme';
 

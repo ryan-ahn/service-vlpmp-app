@@ -30,6 +30,8 @@ import samsung from '@asset/icons/common/store-ss.svg';
 import lg from '@asset/icons/common/store-lg.svg';
 import electronic from '@asset/icons/common/store-el.svg';
 import himart from '@asset/icons/common/store-hm.svg';
+import permissionCamera from '@asset/icons/intro/permission-camera.svg';
+import permissionGallery from '@asset/icons/intro/permission-gallery.svg';
 
 const icons = {
   // 네비게이션 아이콘
@@ -55,6 +57,8 @@ const icons = {
   lg: lg,
   electronic: electronic,
   himart: himart,
+  permissionCamera: permissionCamera,
+  permissionGallery: permissionGallery,
   // Modal
   estimatePreviewCheck: estimatePreviewCheck,
   estimatePreviewPercent: estimatePreviewPercent,
