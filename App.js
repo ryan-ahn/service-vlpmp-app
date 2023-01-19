@@ -38,8 +38,14 @@ import theme from '@styles/theme';
 
 export default function App() {
   // Root State
-  const { userLoggedIn, userDetail, isFetchedSignIn, setUserLoggedIn, fetchSessionCheck } =
-    useUserStore();
+  const {
+    userLoggedIn,
+    userPermissions,
+    setUserPermissions,
+    isFetchedSignIn,
+    setUserLoggedIn,
+    fetchSessionCheck,
+  } = useUserStore();
   // Hooks
   const myCustomDarkTheme = createTheme({
     colors: palette => ({
@@ -137,7 +143,13 @@ export default function App() {
           <ToastProvider placement="top" offsetTop={50} duration={3000}>
             <StatusBar animated={true} barStyle="dark-content" />
             <NavigationContainer>
-              {userLoggedIn ? <RootStackNavigation /> : <AuthStackNavigation />}
+              {userLoggedIn ? (
+                <RootStackNavigation />
+              ) : userPermissions ? (
+                <AuthStackNavigation />
+              ) : (
+                <PermissionsNavigation />
+              )}
             </NavigationContainer>
           </ToastProvider>
         </ThemeProvider>

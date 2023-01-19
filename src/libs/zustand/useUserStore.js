@@ -12,9 +12,11 @@ export const useUserStore = create(set => ({
   // State
   userDetail: null,
   userLoggedIn: false,
+  userPermissions: false,
   // Set State
   setUserDetail: payload => set({ userDetail: payload }),
   setUserLoggedIn: payload => set({ userLoggedIn: payload }),
+  setUserPermissions: payload => set({ userPermissions: payload }),
   // Async State
   errorMessage: '',
   isLoadingSignIn: false,
