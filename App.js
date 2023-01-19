@@ -8,6 +8,7 @@ import React, { useEffect } from 'react';
 import { StatusBar } from 'react-native';
 import { ThemeProvider } from 'styled-components';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { PERMISSIONS, checkMultiple } from 'react-native-permissions';
 import { setCustomText } from 'react-native-global-props';
 import { ToastProvider } from 'react-native-toast-notifications';
 import SplashScreen from 'react-native-splash-screen';
@@ -76,6 +77,21 @@ export default function App() {
   };
   setCustomText(customTextProps);
 
+  const checkMultiplePermissions = () => {
+    checkMultiple([PERMISSIONS.ANDROID.CAMERA, PERMISSIONS.ANDROID.READ_EXTERNAL_STORAGE]).then(
+      response => {
+        if (
+          response['android.permission.CAMERA'] === 'granted' &&
+          response['android.permission.READ_EXTERNAL_STORAGE'] === 'granted'
+        ) {
+          setUserPermissions(true);
+        } else {
+          setUserPermissions(false);
+        }
+      },
+    );
+  };
+
   const userSession = async () => {
     try {
       const value = await AsyncStorage.getItem('access');
@@ -91,6 +107,10 @@ export default function App() {
   useEffect(() => {
     userSession();
   }, [isFetchedSignIn]);
+
+  useEffect(() => {
+    checkMultiplePermissions();
+  }, []);
 
   useEffect(() => {
     try {
