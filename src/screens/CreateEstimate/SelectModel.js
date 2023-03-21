@@ -18,7 +18,11 @@ export default function SelectModel() {
 
   const onChangeModelNameText = useCallback(
     (id, value) => {
-      setSelectedModel(id, value);
+      let copiedSelectedModel = [...selectedModel];
+      copiedSelectedModel.length !== 0 && copiedSelectedModel.some(item => item.id === id)
+        ? (copiedSelectedModel.filter(item => item.id === id)[0].modelName = value)
+        : copiedSelectedModel.push({ id: id, modelName: value, tags: [], memo: '' });
+      setSelectedModel(copiedSelectedModel);
     },
     [selectedModel],
   );
@@ -58,7 +62,7 @@ export default function SelectModel() {
     data => {
       return data.map(item => <View key={item.id}>{renderSpecDetailItem(item)}</View>);
     },
-    [callDetail],
+    [selectedModel, callDetail],
   );
 
   return (

@@ -11,6 +11,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 export const useMainStore = create(set => ({
   // Async State
   callStatus: null,
+  mainNotice: null,
   estimateStatus: null,
   isLoadingMainData: false,
   isFetchedMainData: false,
@@ -29,6 +30,7 @@ export const useMainStore = create(set => ({
       set(() => ({
         callStatus: response.data.callStatus,
         estimateStatus: response.data.estimateStatus,
+        mainNotice: response.data.notice,
         isLoadingMainData: false,
         isFetchedMainData: true,
       }));

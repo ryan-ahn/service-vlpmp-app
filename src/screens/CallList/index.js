@@ -76,27 +76,31 @@ export default function CallListScreen({ navigation, route }) {
     }
   }, []);
 
-  const renderCallItem = useCallback(item => {
-    return (
-      <ItemWrapper key={item.id}>
-        <FlexColumnBox>
-          <FlexRowBox>
-            <RequestTypeText textBreakStrategy="simple">
-              {VARIATION_REQUEST_TYPE[item.type]}
-            </RequestTypeText>
-            <StatusBox attrState={item.tags[0]}>
-              <StatusText>{item.tags[0]}</StatusText>
-            </StatusBox>
-          </FlexRowBox>
-          <FlexRowBox>{renderCallTypeItem(item)}</FlexRowBox>
-          <DeliveryAddressText>{item.address}</DeliveryAddressText>
-        </FlexColumnBox>
-        <ButtonBox onPress={() => onPressRouteToCallDetail(item)}>
-          <ButtonText>보기</ButtonText>
-        </ButtonBox>
-      </ItemWrapper>
-    );
-  }, []);
+  const renderCallItem = useCallback(
+    item => {
+      console.log(item.tags);
+      return (
+        <ItemWrapper key={item.id}>
+          <FlexColumnBox>
+            <FlexRowBox>
+              <RequestTypeText textBreakStrategy="simple">
+                {VARIATION_REQUEST_TYPE[item.type]}
+              </RequestTypeText>
+              {/* <StatusBox attrState={item.tags[0]}>
+                <StatusText>{item.tags[0]}</StatusText>
+              </StatusBox> */}
+            </FlexRowBox>
+            <FlexRowBox>{renderCallTypeItem(item)}</FlexRowBox>
+            <DeliveryAddressText>{item.address}</DeliveryAddressText>
+          </FlexColumnBox>
+          <ButtonBox onPress={() => onPressRouteToCallDetail(item)}>
+            <ButtonText>보기</ButtonText>
+          </ButtonBox>
+        </ItemWrapper>
+      );
+    },
+    [focusedTab, callList, isLoadingCall],
+  );
 
   // Render List
   const renderList = useCallback(() => {

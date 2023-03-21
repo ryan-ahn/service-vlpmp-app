@@ -40,6 +40,18 @@ export default function PreviewModal({ navigation }) {
   const toast = useToast();
 
   const onPressSendEstimate = useCallback(() => {
+    console.log(
+      callDetail.id,
+      selectedGift,
+      cardSale,
+      giftCard,
+      point,
+      storeSale,
+      saletype,
+      price,
+      retailPrice,
+      selectedModel,
+    );
     fetchCreateEstimate({
       callId: callDetail.id,
       gifts: selectedGift,
@@ -50,7 +62,7 @@ export default function PreviewModal({ navigation }) {
       type: saletype,
       priceAvailable: price,
       priceNormal: retailPrice,
-      products: callDetail.category,
+      products: selectedModel,
     });
   }, [
     estimateStep,
@@ -63,6 +75,7 @@ export default function PreviewModal({ navigation }) {
     saletype,
     price,
     retailPrice,
+    selectedModel,
   ]);
 
   useEffect(() => {

@@ -21,14 +21,11 @@ export const useCallStore = create(set => ({
     set(() => ({ isLoadingCall: true, isFetchedCall: false }));
     const access = await AsyncStorage.getItem('access');
     try {
-      const response = await axios.get(
-        `https://api.vlpmcorp.com/dev/call${day ? '?days=' + day : ''}`,
-        {
-          headers: {
-            Authorization: access,
-          },
+      const response = await axios.get(`https://api.vlpmcorp.com/dev/call?day=1`, {
+        headers: {
+          Authorization: access,
         },
-      );
+      });
       set(() => ({
         callList: response.data.result,
         isLoadingCall: false,

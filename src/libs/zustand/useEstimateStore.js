@@ -25,12 +25,7 @@ export const useCreateEstimateStore = create(set => ({
   prevEstimateStep: () =>
     set(state => ({ estimateStep: state.estimateStep > 0 ? state.estimateStep - 1 : 0 })),
   setSelectedBenefit: payload => set({ selectedBenefit: payload }),
-  setSelectedModel: (id, value) =>
-    set(state =>
-      state.selectedModel.length !== 0 && state.selectedModel.some(item => item.id === id)
-        ? (state.selectedModel.filter(item => item.id === id)[0].modelName = value)
-        : { selectedModel: state.selectedModel.concat({ id: id, modelName: value }) },
-    ),
+  setSelectedModel: payload => set({ selectedModel: payload }),
   setSaleType: payload => set({ saletype: payload }),
   setRetailPrice: payload => set({ retailPrice: payload }),
   setPrice: payload => set({ price: payload }),
@@ -89,6 +84,7 @@ export const useCreateEstimateStore = create(set => ({
         isFetchedCreateEstimate: true,
       }));
     } catch (e) {
+      console.log(e.response);
       set(() => ({
         errorMessage: e.response.data.message,
         hasErrorsCreateEstimate: true,

@@ -24,7 +24,7 @@ import PageHeader from '@components/Common/Header/PageHeader';
 export default function HomeTab({ navigation }) {
   // Root State
   const { setId, noticeList, fetchNoticeList } = useMypageStore();
-  const { callStatus, estimateStatus, fetchMainData } = useMainStore();
+  const { callStatus, estimateStatus, mainNotice, fetchMainData } = useMainStore();
   const { setTab } = useUsingEstimateStore();
   // value
   const screenHeight = Dimensions.get('window').height;
@@ -118,7 +118,7 @@ export default function HomeTab({ navigation }) {
         </NoticeItemWrapper>
       );
     },
-    [noticeList],
+    [mainNotice],
   );
 
   // Render List
@@ -129,10 +129,10 @@ export default function HomeTab({ navigation }) {
   }, [estimateStatus]);
 
   const renderNoticeList = useCallback(() => {
-    if (noticeList !== null) {
-      return noticeList.map(item => <View key={item.id}>{renderNoticeItem(item)}</View>);
+    if (mainNotice !== null) {
+      return mainNotice.map(item => <View key={item.id}>{renderNoticeItem(item)}</View>);
     }
-  }, [noticeList]);
+  }, [mainNotice]);
 
   return (
     <Wrapper style={{ height: Platform.OS === 'ios' ? screenHeight - 80 : screenHeight - 94 }}>

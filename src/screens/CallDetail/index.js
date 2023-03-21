@@ -18,7 +18,6 @@ import NewEstimateModal from '@components/Modal/NewEstimateModal';
 export default function CallDetailScreen({ navigation, route }) {
   // Root State
   const { callDetail } = useCallStore();
-  console.log(callDetail);
   const { initStore } = useCreateEstimateStore();
   // State
   const [openToggleId, setOpenToggleId] = useState(null);

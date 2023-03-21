@@ -49,7 +49,7 @@ const Wrapper = styled(View)``;
 
 const HeaderBlock = styled(View)`
   ${({ theme }) => theme.flexSet('center', 'flex-end', 'row')};
-  padding: 20px;
+  padding: 60px 20px 20px 20px;
   border: 1px solid #f2f3f4;
 `;
 
