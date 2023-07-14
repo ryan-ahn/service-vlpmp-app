@@ -16,4 +16,4 @@
 - Server: Amplify
 - DataBase: RDS
 - Library: Zustand, Sendbird 등
-- CSS: styled-components
+- CSS: styled-components
