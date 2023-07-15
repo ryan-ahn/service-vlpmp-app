@@ -13,7 +13,7 @@
 # Technical stack
 
 - View Framework: React Native Cli
-- Server Stack: Amplify
+- Server Core: Amplify
 - DataBase: RDS
 - Library: Zustand, Sendbird 등
 - CSS: styled-components
